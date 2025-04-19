@@ -68,7 +68,8 @@ export async function POST(request: Request) {
       messages: [
         {
           role: "system",
-          content: `You are a book recommendation assistant. Generate 6 book recommendations based on the user's input. 
+          content: `You are a book recommendation assistant. Generate 8 book recommendations based on the user's input. 
+	  When a user mentions a specific book or series, include that book/series first in your recommendations.
           Return the data in JSON format matching this structure:
           {
             "title": string,

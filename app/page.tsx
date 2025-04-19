@@ -153,14 +153,16 @@ export default function Home() {
             onChange={(e) => setSearchInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
-          <button
-            onClick={handleSearch}
-            className="absolute right-1 top-1 bg-blue-600 text-white p-2 rounded-md"
-            aria-label="Search"
-            disabled={isLoading}
-          >
-            <Send size={20} />
-          </button>
+          <div className="absolute right-2 top-1/2 -translate-y-1/2">
+            <button
+              onClick={handleSearch}
+              className="bg-blue-600 text-white p-2 rounded-md"
+              aria-label="Search"
+              disabled={isLoading}
+            >
+              <Send size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Filter Options */}
@@ -172,21 +174,23 @@ export default function Home() {
             >
               Sort by
             </label>
-            <select
-              id="sort-select"
-              className="appearance-none border rounded-md px-4 py-2 pr-10 bg-white"
-              value={sortBy}
-              onChange={(e) => handleSort(e.target.value)}
-            >
-              <option value="rating_desc">Rating High-Low</option>
-              <option value="rating_asc">Rating Low-High</option>
-              <option value="title_asc">Title A-Z</option>
-              <option value="title_desc">Title Z-A</option>
-              <option value="author_asc">Author A-Z</option>
-              <option value="author_desc">Author Z-A</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-center w-8 text-gray-700">
-              <ChevronDown className="h-4 w-4" />
+            <div className="relative inline-block w-full">
+              <select
+                id="sort-select"
+                className="appearance-none w-full border rounded-md px-4 py-2 pr-8 bg-white"
+                value={sortBy}
+                onChange={(e) => handleSort(e.target.value)}
+              >
+                <option value="rating_desc">Rating High-Low</option>
+                <option value="rating_asc">Rating Low-High</option>
+                <option value="title_asc">Title A-Z</option>
+                <option value="title_desc">Title Z-A</option>
+                <option value="author_asc">Author A-Z</option>
+                <option value="author_desc">Author Z-A</option>
+              </select>
+              <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
           </div>
         </div>
